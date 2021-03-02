@@ -10,10 +10,10 @@ export default class NotesItem extends Component{
    render(){
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>{this.props.data.header}</Text>
+            <Text style={styles.header}>{this.props.data.hader}</Text>
             <View style={styles.description}>
 
-              <Text numberOfLines={2} style={styles.content}>{this.props.data.contenet}</Text>
+              <Text numberOfLines={2} style={styles.content}>{this.props.data.content}</Text>
               <TouchableOpacity>
 
               <MaterialIcons style={styles.del} name="delete" color={'black'} size={34}/>

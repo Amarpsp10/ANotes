@@ -1,12 +1,21 @@
-import React from 'react';
-import {View,Text,StyleSheet,Dimensions,TouchableOpacity} from 'react-native'
+import React, { Component,useEffect,useState } from 'react';
+import {View,Text,StyleSheet,Dimensions,TouchableOpacity, Alert} from 'react-native'
 import { MaterialCommunityIcons,MaterialIcons} from 'react-native-vector-icons';
-
 import NotesList from './NotesList';
 
+
 export default function Home({navigation}) {
+    
+    // useEffect(()=>{
+    //     navigation.addListener('focus',()=>{
+    //     })
+    // });
+     
+
+
     return (
         <View style={styles.container}>
+            
              <View style={styles.header}>
                    <Text style={styles.title}>Notes</Text>
                    <TouchableOpacity style={styles.title}
@@ -17,12 +26,12 @@ export default function Home({navigation}) {
              </View>
         
             <TouchableOpacity style={styles.add}
-                onPress={()=> navigation.navigate('addNote')}
+                onPress={()=>{ navigation.navigate('addNote')}}
             >
                   <MaterialIcons name="add-circle" color={'black'} size={75}/>
              </TouchableOpacity> 
 
-             <NotesList/>
+             <NotesList navigation={navigation}/>
              
         </View>
     );
