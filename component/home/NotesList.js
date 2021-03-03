@@ -48,24 +48,26 @@ export default class NotesList extends Component{
         //    console.log(data);
         //  })
 
-        // this._getData= this.props.navigation.addListener('focus',()=>{
+        this._getData= this.props.navigation.addListener('focus',()=>{
           
-        //      con
-        //   // getAllKeys().then(allKeys=>{
-        //   //   this.setState({
-        //   //     allKeys:allKeys,
-        //   //   });
-        //   },
-        //   error=>{
-        //     console.log(error);
-        //   })
+          getAllKeys().then(allKeys=>{
+            //    this.setState({
+            //      allKeys:allKeys,
+            //    });
+            
+             getMultiple(allKeys).then(val=>{
+               this.setState({data:val})
+             })
+         
+          },
+          error=>{
+            console.log(error);
+          })
           
-        // });  
+        });  
         
     }
-    componentWillUnmount(){
-      
-    }
+    
     
     
      render(){

@@ -8,23 +8,23 @@ export default class AddNote extends Component{
             super(props);
 
             this.state={
-                note:{
-                    header:'',
+                
+                    hader:'',
                     content:''
-                }
+                
             }
         }
  render(){
     return (
         <View>
-            <TouchableOpacity 
-               onPress={()=>{storeData({note:{header:this.state.note.header,content:this.state.note.content}});
+            <TouchableOpacity  style={{position:'absolute',right:0}}
+               onPress={()=>{storeData({hader:this.state.hader,content:this.state.content});
                               this.props.navigation.navigate('home'); }}
             >
-            <MaterialIcons name='done-outline' size={45}/>
+            <MaterialIcons name='done' size={45}/>
             </TouchableOpacity>
-           <TextInput style={styles.heading}  placeholder='Heading' onChangeText={text=>this.setState({note:{header:text,content:this.state.note.content}})}/>
-           <TextInput style={styles.content}  numberOfLines={3} placeholder='content....' onChangeText={text=>this.setState({note:{content:text,header:this.state.note.header}})}/>
+           <TextInput style={styles.heading}  placeholder='Heading' onChangeText={text=>this.setState({hader:text,content:this.state.content})}/>
+           <TextInput style={styles.content}  numberOfLines={3} placeholder='content....' onChangeText={text=>this.setState({content:text,hader:this.state.hader})}/>
         </View>
     );
  }
