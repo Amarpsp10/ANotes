@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
-import {Text,View,StyleSheet, Dimensions,TouchableOpacity } from 'react-native';
+import {Text,View,StyleSheet, Dimensions,TouchableOpacity, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {MaterialIcons} from 'react-native-vector-icons';
 export default class NotesItem extends Component{
       
@@ -14,9 +15,12 @@ export default class NotesItem extends Component{
             <View style={styles.description}>
 
               <Text numberOfLines={2} style={styles.content}>{this.props.data.content}</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>{
+                  removeValue(this.props.id);
+                  Alert.alert('item remover');
+              }}>
 
-              <MaterialIcons style={styles.del} name="delete" color={'black'} size={34}/>
+              <MaterialIcons style={styles.del} name="delete" color={'black'} size={25}/>
               </TouchableOpacity>
             
             </View>
@@ -26,14 +30,14 @@ export default class NotesItem extends Component{
 
 const styles = StyleSheet.create({
     container:{
-      width:Dimensions.get('window').width,
-      margin:10,
+      width:Dimensions.get('window').width-12,
+      margin:5,
       padding:10,
       backgroundColor:'white',
       borderRadius:30,
       borderColor:'black',
-      borderWidth:1,
-      height:135,
+      borderWidth:2,
+      height:110,
     },
     header:{
        marginLeft:3,
@@ -56,3 +60,15 @@ const styles = StyleSheet.create({
         margin:10
     }
 });
+
+
+
+const removeValue = async (key) => {
+    try {
+      await AsyncStorage.removeItem(key)
+    } catch(e) {
+      // remove error
+    }
+  
+    console.log('Done.')
+  }

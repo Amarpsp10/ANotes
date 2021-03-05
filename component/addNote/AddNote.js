@@ -16,12 +16,12 @@ export default class AddNote extends Component{
         }
  render(){
     return (
-        <View>
-            <TouchableOpacity  style={{position:'absolute',right:0}}
+        <View style={{height:Dimensions.get('window').height}}>
+            <TouchableOpacity  style={{position:'absolute',right:25,bottom:150}}
                onPress={()=>{storeData({hader:this.state.hader,content:this.state.content});
                               this.props.navigation.navigate('home'); }}
             >
-            <MaterialIcons name='done' size={45}/>
+            <MaterialIcons name='done' size={60}/>
             </TouchableOpacity>
            <TextInput style={styles.heading}  placeholder='Heading' onChangeText={text=>this.setState({hader:text,content:this.state.content})}/>
            <TextInput style={styles.content}  numberOfLines={3} placeholder='content....' onChangeText={text=>this.setState({content:text,hader:this.state.hader})}/>
@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
       },
       content:{
           fontSize:20,
-          paddingLeft:20
+          paddingLeft:20,
+          height:150
       }
 });
 

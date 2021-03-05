@@ -73,23 +73,12 @@ export default class NotesList extends Component{
      render(){
         return (
             <View>
-
-               
-
-
-
-                <Text onPress={()=>{ console.log(this.state.data) }}>Press here !!!</Text>
-                {/* <Text>{JSON.stringify(this.state.data)}</Text>  */}
-               
-                {/* <Text>{this.state.isLoading?"ok loading":`completed loading now u can see data : ${this.state.data.length}`}</Text>
-                 */}
-
             <FlatList   
                  data={this.state.data}
                  keyExtractor={(item)=> item[0]}
                  renderItem={({item})=>(
 
-                      <NotesItem data={JSON.parse(item[1])}/>
+                      <NotesItem id = {item[0]} data={JSON.parse(item[1])}/>
                       //  <Text>{item[1]}</Text>
                 )}
             />        
