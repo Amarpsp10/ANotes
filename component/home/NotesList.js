@@ -78,7 +78,7 @@ export default class NotesList extends Component{
                  keyExtractor={(item)=> item[0]}
                  renderItem={({item})=>(
 
-                      <NotesItem id = {item[0]} data={JSON.parse(item[1])}/>
+                      <NotesItem id = {item[0]} data={JSON.parse(item[1])} navigation={this.props.navigation}/>
                       //  <Text>{item[1]}</Text>
                 )}
             />        

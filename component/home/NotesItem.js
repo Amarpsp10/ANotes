@@ -18,6 +18,10 @@ export default class NotesItem extends Component{
               <TouchableOpacity onPress={()=>{
                   removeValue(this.props.id);
                   Alert.alert('item remover');
+                  this.props.navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'home' }],
+                  });
               }}>
 
               <MaterialIcons style={styles.del} name="delete" color={'black'} size={25}/>
