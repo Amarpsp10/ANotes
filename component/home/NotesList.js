@@ -72,7 +72,7 @@ export default class NotesList extends Component{
     
      render(){
         return (
-            <View>
+            <View style={{height:Dimensions.get('screen').height-90}}>
             <FlatList   
                  data={this.state.data}
                  keyExtractor={(item)=> item[0]}
