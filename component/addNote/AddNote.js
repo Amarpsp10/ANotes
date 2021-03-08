@@ -18,13 +18,15 @@ export default class AddNote extends Component{
     return (
         <View style={{height:Dimensions.get('window').height}}>
             <TouchableOpacity  style={{position:'absolute',right:25,bottom:150}}
-               onPress={()=>{storeData({hader:this.state.hader,content:this.state.content});
-                              this.props.navigation.navigate('home'); }}
+               onPress={()=>{ if( (this.state.content.length) || (!this.state.content.length && this.state.hader.length)){
+                                    storeData({hader:this.state.hader,content:this.state.content});}
+                              this.props.navigation.navigate('home'); 
+                            }}
             >
             <MaterialIcons name='done' size={60}/>
             </TouchableOpacity>
            <TextInput style={styles.heading}  placeholder='Heading' onChangeText={text=>this.setState({hader:text,content:this.state.content})}/>
-           <TextInput style={styles.content}  numberOfLines={3} placeholder='content....' onChangeText={text=>this.setState({content:text,hader:this.state.hader})}/>
+           <TextInput style={styles.content} multiline={true} numberOfLines={4} placeholder='content....' onChangeText={text=>this.setState({content:text,hader:this.state.hader})}/>
         </View>
     );
  }
