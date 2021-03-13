@@ -1,7 +1,8 @@
 import React, { Component} from 'react';
-import {Text,View,StyleSheet, Dimensions,TouchableOpacity, Alert } from 'react-native';
+import {Text,View,StyleSheet, Dimensions,TouchableOpacity, Alert, TouchableWithoutFeedback } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {MaterialIcons} from 'react-native-vector-icons';
+
 export default class NotesItem extends Component{
       
     constructor(props){
@@ -10,8 +11,9 @@ export default class NotesItem extends Component{
 
    render(){
     return (
+             <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('addNote',{contenting:this.props.data.content,hadering:this.props.data.hader})}>
         <View style={styles.container}>
-            <Text style={styles.header}>{this.props.data.hader}</Text>
+            <Text style={styles.header} >{this.props.data.hader}</Text>
             <View style={styles.description}>
 
               <Text numberOfLines={2} style={styles.content}>{this.props.data.content}</Text>
@@ -23,12 +25,12 @@ export default class NotesItem extends Component{
                     routes: [{ name: 'home' }],
                   });
               }}>
-
               <MaterialIcons style={styles.del} name="delete" color={'black'} size={25}/>
               </TouchableOpacity>
             
             </View>
         </View>     
+             </TouchableWithoutFeedback>
     );}
 }
 
