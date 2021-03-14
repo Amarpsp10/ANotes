@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from './component/home/Home'
 import AddNoteScreen from './component/addNote/AddNote';
 import SearchScreen from './component/search/Search'
+import ShowNote from './component/addNote/ShowNote';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
           <Stack.Screen name='home' component={HomeScreen} options={{headerShown:false}}/>
           <Stack.Screen name='addNote' component={AddNoteScreen} />
           <Stack.Screen name='search' component={SearchScreen} />
+          <Stack.Screen name= 'showNote' component={ShowNote} />
           {/* <Stack.Screen name='viewNote' component={} options={{headerShown:false}}/> */}
        </Stack.Navigator>
          

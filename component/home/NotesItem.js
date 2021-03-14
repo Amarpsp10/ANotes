@@ -11,7 +11,7 @@ export default class NotesItem extends Component{
 
    render(){
     return (
-             <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('addNote',{contenting:this.props.data.content,hadering:this.props.data.hader})}>
+             <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('showNote',{contenting:this.props.data.content,hadering:this.props.data.hader})}>
         <View style={styles.container}>
             <Text style={styles.header} >{this.props.data.hader}</Text>
             <View style={styles.description}>

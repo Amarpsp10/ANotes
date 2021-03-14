@@ -25,8 +25,8 @@ export default class AddNote extends Component{
             >
             <MaterialIcons name='done' size={60}/>
             </TouchableOpacity>
-           <TextInput value={this.props.navigation.contenting} style={styles.heading}  placeholder='Heading' onChangeText={text=>this.setState({hader:text,content:this.state.content})}/>
-           <TextInput value={this.props.navigation.hadering} style={styles.content} multiline={true} numberOfLines={4} placeholder='content....' onChangeText={text=>this.setState({content:text,hader:this.state.hader})}/>
+           <TextInput  style={styles.heading}  placeholder='Heading' onChangeText={text=>this.setState({hader:text,content:this.state.content})}/>
+           <TextInput  style={styles.content} multiline={true} numberOfLines={4} placeholder='content....' onChangeText={text=>this.setState({content:text,hader:this.state.hader})}/>
         </View>
     );
  }
