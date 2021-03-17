@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Text,StyleSheet,View,Dimensions} from 'react-native'
+import {Text,StyleSheet,View,Dimensions,TouchableOpacity} from 'react-native'
+import { MaterialCommunityIcons,MaterialIcons} from 'react-native-vector-icons';
 export default class ShowNote extends Component{
 
     constructor(props){
@@ -13,6 +14,11 @@ export default class ShowNote extends Component{
             <View>
                 <Text style={styles.heading}>some heading here!!!</Text>
                 <Text style={styles.content}>some content here.....</Text>
+                <TouchableOpacity style={styles.add}
+                onPress={()=>{ this.props.navigation.navigate('addNote')}}
+                >
+                  <MaterialIcons name="add-circle" color={'black'} size={75}/>
+             </TouchableOpacity>
             </View>
      );
     }
@@ -31,6 +37,12 @@ const styles = StyleSheet.create({
     content:{
         fontSize:20,
         paddingLeft:20,
-        height:150
-    }
+        height:150,
+    },
+    add:{
+        position:'absolute',
+        zIndex:1,
+        bottom:25,
+        right:25
+    },
 });
